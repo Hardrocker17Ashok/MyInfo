@@ -9,14 +9,18 @@ import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
 @Configuration
 public class MongoConfig {
 
-    private static final String CONNECTION_STRING =
-            "mongodb+srv://resume17:orjhfipabyvX8QQO@cluster0.bykqcxp.mongodb.net/";
-
-    private static final String DATABASE_NAME = "meapi";
-
     @Bean
     public MongoDatabaseFactory mongoDatabaseFactory() {
-        return new SimpleMongoClientDatabaseFactory(CONNECTION_STRING + DATABASE_NAME);
+
+        String uri = System.getenv("MONGODB_URI");
+
+        if (uri == null || uri.isEmpty()) {
+            throw new RuntimeException(
+                    "MONGODB_URI environment variable is not set"
+            );
+        }
+
+        return new SimpleMongoClientDatabaseFactory(uri);
     }
 
     @Bean
