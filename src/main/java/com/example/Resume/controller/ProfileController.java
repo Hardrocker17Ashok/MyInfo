@@ -4,10 +4,10 @@ package com.example.Resume.controller;
 import com.example.Resume.model.Profile;
 import com.example.Resume.model.Project;
 import com.example.Resume.service.ProfileService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RestController
 @RequestMapping("/api")
 @CrossOrigin(origins = "*")
@@ -49,5 +49,8 @@ public class ProfileController {
         return service.search(q);
     }
 
-
+    @GetMapping("/skills/top")   // ✅ FIXED
+    public ResponseEntity<?> getTopSkill() {
+        return ResponseEntity.ok(service.getTopSkill());  // ✅ FIXED
+    }
 }

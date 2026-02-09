@@ -15,7 +15,7 @@ public class HomeController {
 
         Map<String, Object> response = new LinkedHashMap<>();
 
-        response.put("message", "Welcome to Me-API Playground 🚀");
+        response.put("message", "Welcome to Resume Web Application 🚀");
         response.put("owner", "Ashok Sharma");
         response.put("role", "Backend Developer | MCA Student");
         response.put("status", "API is running successfully ✅");

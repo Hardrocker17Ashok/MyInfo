@@ -12,7 +12,7 @@ public class HealthController {
     public Map<String, Object> health() {
         Map<String, Object> map = new HashMap<>();
         map.put("status", "UP");
-        map.put("service", "Me-API Playground");
+        map.put("service", "My Resume");
         map.put("timestamp", System.currentTimeMillis());
         return map;
     }
